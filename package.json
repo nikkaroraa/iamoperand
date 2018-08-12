@@ -5,9 +5,10 @@
   "license": "MIT",
   "author": "Nikhil Arora <narora200@gmail.com>",
   "scripts": {
-    "start": "node dist",
+    "start": "NODE_ENV=production node dist",
     "start:dev": "NODE_ENV=development nodemon src --exec babel-node",
     "build": "rimraf build && webpack --mode production src/",
+    "deploy:now": "now && now alias && now remove iamoperand-backend --safe -y",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "precommit": "lint-staged"
@@ -32,10 +33,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "body-parser": "^1.18.3",
-    "cors": "^2.8.4",
     "dotenv": "^6.0.0",
-    "express": "^4.16.3",
-    "morgan": "^1.9.0"
+    "graphql-yoga": "^1.16.0"
   }
 }
