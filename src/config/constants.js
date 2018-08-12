@@ -1,4 +1,4 @@
-const PORT = process.env.PORT || 4444;
+const PORT = process.env.PORT || 6060;
 
 const config = {
   PORT,

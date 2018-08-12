@@ -1,0 +1,9 @@
+{
+  "name": "iamoperand-backend",
+  "alias": "iamoperand-backend.now.sh",
+  "type": "npm",
+  "public": true,
+  "engines": {
+    "node": "^6.0.0"
+  }
+}

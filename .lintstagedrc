@@ -1,8 +1,11 @@
 {
   "linters": {
-    "src/**/*.js": [
+    "*.js": [
       "eslint",
       "git add"
     ]
-  }
+  },
+  "ignore": [
+    "dist/*.js"
+  ]
 }

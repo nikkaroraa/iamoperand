@@ -1,29 +1,40 @@
-import express from 'express';
-import morgan from 'morgan';
-import cors from 'cors';
-import { json, urlencoded } from 'body-parser';
+import { GraphQLServer } from 'graphql-yoga';
 
-import config from './config/constants';
+import constants from './config/constants';
 
 
-const { PORT } = config;
-const app = express();
+const { PORT } = constants;
+const isProduction = (process.env.NODE_ENV === 'production');
 
-app.use(morgan('dev'));
-app.use(cors());
-app.use(json());
-app.use(urlencoded({
-  extended: true,
-}));
+const typeDefs = `
+  type Query {
+    info: String!
+  }
+`;
 
-app.get('/status', (req, res) => {
-  res.json({ status: 'Working!' });
+const resolvers = {
+  Query: {
+    info: () => 'GraphQL is awesome!',
+  },
+};
+
+const server = new GraphQLServer({
+  typeDefs,
+  resolvers,
 });
 
 
-const server = app.listen(PORT, () => {
+let playground = '/playground';
+if (isProduction) {
+  playground = false;
+}
+
+const options = {
+  port: PORT,
+  playground,
+};
+
+server.start(options, ({ port }) => {
   // eslint-disable-next-line no-console
-  console.log(`Backend is running on PORT: ${PORT}`);
+  console.log(`Server is running on PORT: ${port}`);
 });
-
-export default server;
