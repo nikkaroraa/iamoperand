@@ -4,7 +4,6 @@ import constants from './config/constants';
 
 
 const { PORT } = constants;
-const isProduction = (process.env.NODE_ENV === 'production');
 
 const typeDefs = `
   type Query {
@@ -24,14 +23,9 @@ const server = new GraphQLServer({
 });
 
 
-let playground = '/playground';
-if (isProduction) {
-  playground = false;
-}
-
 const options = {
   port: PORT,
-  playground,
+  playground: '/playground',
 };
 
 server.start(options, ({ port }) => {
