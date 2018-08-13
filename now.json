@@ -1,6 +1,6 @@
 {
-  "name": "iamoperand-backend",
-  "alias": "iamoperand-backend.now.sh",
+  "name": "iamoperand",
+  "alias": "iamoperand.now.sh",
   "type": "npm",
   "public": true,
   "engines": {
