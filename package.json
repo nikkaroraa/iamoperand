@@ -1,14 +1,14 @@
 {
-  "name": "iamoperand-backend",
+  "name": "iamoperand",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "author": "Nikhil Arora <narora200@gmail.com>",
   "scripts": {
-    "start": "NODE_ENV=production node dist",
+    "start": "NODE_ENV=development node dist",
     "start:dev": "NODE_ENV=development nodemon src --exec babel-node",
     "build": "rimraf build && webpack --mode production src/",
-    "deploy:now": "now && now alias && now remove iamoperand-backend --safe -y",
+    "deploy:now": "now && now alias && now remove iamoperand --safe -y",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "precommit": "lint-staged"
@@ -32,7 +32,10 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
+    "apollo-server-express": "^2.0.0",
     "dotenv": "^6.0.0",
-    "graphql-yoga": "^1.16.0"
+    "express": "^4.16.3",
+    "graphql": "^0.13.2",
+    "merge-graphql-schemas": "^1.5.3"
   }
 }
