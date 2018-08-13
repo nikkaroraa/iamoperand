@@ -1,31 +1,32 @@
 import { GraphQLServer } from 'graphql-yoga';
 
-import constants from './config/constants';
+import constants, { graphQLConfig } from './config/constants';
+import Query from './graphql/resolvers/Query';
 
 
 const { PORT } = constants;
+const {
+  GRAPHQL_TYPEDEFS_PATH,
+  PLAYGROUND_URL,
+} = graphQLConfig;
 
-const typeDefs = `
-  type Query {
-    info: String!
-  }
-`;
 
 const resolvers = {
-  Query: {
-    info: () => 'GraphQL is awesome!',
-  },
+  Query,
 };
 
 const server = new GraphQLServer({
-  typeDefs,
+  typeDefs: GRAPHQL_TYPEDEFS_PATH,
   resolvers,
+  resolverValidationOptions: {
+    requireResolversForResolveType: false,
+  },
 });
 
 
 const options = {
   port: PORT,
-  playground: '/playground',
+  playground: PLAYGROUND_URL,
 };
 
 server.start(options, ({ port }) => {
