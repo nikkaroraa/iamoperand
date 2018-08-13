@@ -32,7 +32,6 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
-    "axios": "^0.18.0",
     "dotenv": "^6.0.0",
     "graphql-yoga": "^1.16.0"
   }
