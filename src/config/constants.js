@@ -10,7 +10,7 @@ let URL = `http://localhost:${PORT}`;
 const isProduction = (process.env.NODE_ENV === 'production');
 
 if (isProduction === true) {
-  URL = 'https://iamoperand.now.sh';
+  URL = 'https://iamnikhil.now.sh';
 }
 
 const config = {
@@ -25,12 +25,15 @@ const PLAYGROUND_URL = '/';
 const DEFAULT_QUERY = `
   query {
     name
+    about
     email
     age
     github
     medium
+    angellist
     twitter
     stackoverflow
+    skills
     projects {
       name
       description
