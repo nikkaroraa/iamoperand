@@ -1,5 +1,5 @@
 {
-  "name": "iamoperand",
+  "name": "iamnikhil",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -8,7 +8,7 @@
     "start": "NODE_ENV=development node dist",
     "start:dev": "NODE_ENV=development nodemon src --exec babel-node",
     "build": "rimraf build && webpack --mode production src/",
-    "deploy:now": "now && now alias && now remove iamoperand --safe -y",
+    "deploy:now": "now && now alias && now remove iamnikhil --safe -y",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "precommit": "lint-staged"
